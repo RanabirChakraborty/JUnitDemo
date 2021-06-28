@@ -1,11 +1,13 @@
 package testsuite;
 
 import main.HelloPlants;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class HelloPlantsTest {
 
+    // @Ignore("if we want to ignore the testcase")
     @Test
     void green() {
 
