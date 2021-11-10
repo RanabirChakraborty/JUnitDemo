@@ -10,8 +10,12 @@ public class Calculator {
 		return a/b;
 	}
 	
-	public double multiply (int a, int b) {
+	public int multiply (int a, int b) {
 		return a*b;
+	}
+	
+	public int deduction (int a, int b) {
+		return a-b;
 	}
 
 }

@@ -8,12 +8,14 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.OS;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+@DisplayName("Testing the calculator")
 class AdditionTest {
 	
 	Calculator obj;
@@ -61,5 +63,21 @@ class AdditionTest {
 				() -> assertEquals(0, obj.multiply(2, 0)),
 				() -> assertEquals(-6, obj.multiply(-2, 3))
 				);
+	}
+	
+	@Nested
+	class testDeduction {
+		
+		@Test
+		@DisplayName("Testing for positive num deduction")
+		void posDiduction() {
+			assertEquals(4, obj.deduction(7, 3), "success");
+		}
+		
+		@Test
+		@DisplayName("Testing for negative num deduction")
+		void negDiduction() {
+			assertEquals(-4, obj.deduction(-7, -3), "success");
+		}
 	}
 }
