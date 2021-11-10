@@ -9,6 +9,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.RepetitionInfo;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.condition.EnabledOnOs;
@@ -40,11 +42,12 @@ class AdditionTest {
 		System.out.println("Test ended.");
 	}
 
-	@Test
+	@RepeatedTest(5)
 	@DisplayName("Testing add method")				//to display in JUnit test what the Testing method name is (Not necessary)
-	void testAdd () {
+	void testAdd (RepetitionInfo repetitionInfo) {
+		repetitionInfo.notify();                    //can play with Repeated test accordingly.
 		int sum = obj.add(1, 1);
-		assertEquals(sum, 2, "The add method should add two numbers." );
+		assertEquals(2, sum, () -> "The add method should add two numbers.");
 	}
 	
 	@Test
