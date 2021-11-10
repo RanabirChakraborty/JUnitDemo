@@ -17,5 +17,9 @@ public class Calculator {
 	public int deduction (int a, int b) {
 		return a-b;
 	}
+	
+	public int areaSquare (int a) {
+		return a*a;
+	}
 
 }

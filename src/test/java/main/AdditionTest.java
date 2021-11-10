@@ -11,6 +11,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.RepetitionInfo;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.condition.EnabledOnOs;
@@ -43,6 +44,7 @@ class AdditionTest {
 	}
 
 	@RepeatedTest(5)
+	@Tag("Calculator")								//@Tag is used to filter the test-cases from other test plans.
 	@DisplayName("Testing add method")				//to display in JUnit test what the Testing method name is (Not necessary)
 	void testAdd (RepetitionInfo repetitionInfo) {
 		repetitionInfo.notify();                    //can play with Repeated test accordingly.
@@ -51,6 +53,7 @@ class AdditionTest {
 	}
 	
 	@Test
+	@Tag("Calculator")
 	@EnabledOnOs(OS.LINUX)							//to enable the test only for a particular platform.
 	void testDivide() {
 		boolean isSomethingBreaking = true;
@@ -59,6 +62,7 @@ class AdditionTest {
 	}
 	
 	@Test
+	@Tag("Calculator")
 	@DisplayName("Multiply method test")
 	void testMultiply() {
 		assertAll(
@@ -69,6 +73,7 @@ class AdditionTest {
 	}
 	
 	@Nested
+	@Tag("Calculator")
 	class testDeduction {
 		
 		@Test
@@ -82,5 +87,11 @@ class AdditionTest {
 		void negDiduction() {
 			assertEquals(-4, obj.deduction(-7, -3), "success");
 		}
+	}
+	
+	@Test
+	@Tag("Square")
+	void testAreaSquare() {
+		assertEquals(4, obj.areaSquare(2), "Test area of a square.");
 	}
 }
